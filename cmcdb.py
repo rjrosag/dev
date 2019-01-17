@@ -1,6 +1,7 @@
 import sqlite3
 import sys
 import os
+from cassandra.cluster import Cluster
 
 class:
 	__init__(self):
@@ -15,8 +16,19 @@ class:
 			self.db_path = self.home + '/Documents/cmc/db/config'
 	return(self.db_path)
 
-	def dbOpen(self, table=""):
-		conn = sqlite3.connect(table)
+	def dbOpen(self, table="", type):
+		dbtype = type 
+		if dbtype = "cassandra":
+			cassandracluster = Cluster()
+			conn = cassandracluster.connect('mykeyspace')
+		else:
+
+
+			
+
+
+
+			conn = sqlite3.connect(table)
 		retun(conn)
 	
 	def dbExecute(self, statement = ""):
