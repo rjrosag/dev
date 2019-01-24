@@ -1,0 +1,12 @@
+class TengraderInstall:
+	__init__(self, home=""):
+		self.home = home
+	# Directory structure Add
+	# DB Add 
+	# Default value provision
+
+# Main
+if __main__ == __main__:
+	Installer = TengraderInstall()
+
+
