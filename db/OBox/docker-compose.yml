@@ -1,0 +1,17 @@
+version "1.0"
+services: 
+	app: 
+		build: ./OBox
+		links:
+			- db: 
+
+				image: mysql:5.7 
+				ports: 
+					- "32000:3306"
+				environment: 
+					MYSQL_ROOT_PASSWORD: root 
+				volumes: 
+					- ./db:/docker-entrypoint-initd/:ro  
+		ports: 
+
+			- "9000:9000"

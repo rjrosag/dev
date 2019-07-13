@@ -1,0 +1,22 @@
+# Using an official Python runtime as an image
+FROM python:3.6
+
+# Exposing App ports
+EXPOSE 9000
+
+# Setting working directory
+WORKDIR /OBox
+
+# Installing prerequisites
+
+# COPY install.txt
+# COPY setup.txt /OBox
+# RUN pip install -r requirements.txt 
+
+
+
+# Copy python souce code 
+
+
+# COPY app.py /OBox
+# CMD python app.py  
