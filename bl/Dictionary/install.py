@@ -20,11 +20,14 @@ class dictionarydb:
     cursor.execute("USE dictionary;")
     cursor.execute("DROP TABLE IF EXISTS Attribute;")
     sql_command = '''CREATE TABLE IF NOT EXISTS Attribute (
-                            id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+                            id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                            sys VARCHAR(3),
+                            tablename VARCHAR(10), 
                             name VARCHAR(30),
                             type VARCHAR(10),
                             length INT,
-                            format VARCHAR(15)                            
+                            format VARCHAR(15), 
+                            INDEX NAME (sys, tablename)                            
                             );
     '''
     cursor.execute(sql_command)
