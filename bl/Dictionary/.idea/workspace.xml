@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe2422c3-bfe1-4e34-b054-3064003a83e7" name="Default Changelist" comment="Test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fe2422c3-bfe1-4e34-b054-3064003a83e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/install.py" beforeDir="false" afterPath="$PROJECT_DIR$/install.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/install.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="238">
+              <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
               <folding>
                 <element signature="e#54#76#0" expanded="true" />
               </folding>
@@ -156,21 +155,22 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1217" height="805" extended-state="6" />
+    <frame x="65" y="-4" width="1215" height="804" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24580537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49580538" weight="0.32952926" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49580538" weight="0.39942938" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4941275" visible="true" weight="0.32952926" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49496645" weight="0.39942938" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5041946" side_tool="true" visible="true" weight="0.31811696" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5058725" side_tool="true" visible="true" weight="0.32952926" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -179,15 +179,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="DB connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="DB connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/install.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
+          <line>18</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -195,8 +196,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/install.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="238">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
           <folding>
             <element signature="e#54#76#0" expanded="true" />
           </folding>
