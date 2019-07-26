@@ -6,25 +6,33 @@ import os
 
 class dictionarydb:
   def __init__(self):
-    self.host = os.environ.get('DICTIONARY_DBHOST', "localhost")
-    self.user = os.environ.get('DICTIONARY_DBUSER', 'admin')
-    self.passwd = os.environ.get('DICTIONARY_DBPASSWORD', 'c0mcast!')
+    pass
 
 
-  def create(self, host, user, passwd):
+  def create(self):
+    sql_command = ""
     mydb = mysql.connector.connect(
         host=os.environ.get('DICTIONARY_DBHOST', "localhost"),
         user=os.environ.get('DICTIONARY_DBUSER', 'admin'),
         passwd=os.environ.get('DICTIONARY_DBPASSWORD', 'c0mcast!'))
     cursor = mydb.cursor(buffered=None)
     cursor.execute("CREATE DATABASE IF NOT EXISTS dictionary;")
-    xcursor.close()
+    cursor.execute("USE dictionary;")
+    cursor.execute("DROP TABLE IF EXISTS Attribute;")
+    sql_command = '''CREATE TABLE IF NOT EXISTS Attribute (
+                            id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+                            name VARCHAR(30),
+                            type VARCHAR(10),
+                            length INT,
+                            format VARCHAR(15)                            
+                            );
+    '''
+    cursor.execute(sql_command)
+    cursor.close()
     mydb.commit()
     mydb.close()
 
-host = os.environ.get('DICTIONARY_DBHOST', "localhost")
-user = os.environ.get('DICTIONARY_DBUSER', 'admin')
-passwd = os.environ.get('DICTIONARY_DBPASSWORD', 'c0mcast!')
+
 
 sysdb = dictionarydb()
-sysdb.create(host, user, passwd)
+sysdb.create()
