@@ -123,15 +123,4 @@
     <MESSAGE value="DB connection" />
     <option name="LAST_COMMIT_MESSAGE" value="DB connection" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/install.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>

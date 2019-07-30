@@ -51,9 +51,9 @@ class dictionarydb:
           elif 'DATE' in record:
               sql_command = 'INSERT INTO attribute (sys,tablename,name,type) VALUES (' + record + ');'
           elif 'INDEX' in record:
-              sql_command = 'INSERT INTO attribute (sys,tablename, _index) VALUES (' + record + ');'
+              sql_command = 'INSERT INTO attribute (sys,tablename,type, _index) VALUES (' + record + ');'
           elif 'FOREIGN' in record:
-              sql_command = 'INSERT INTO attribute (sys,tablename, _foreignkey) VALUES (' + record + ');'
+              sql_command = 'INSERT INTO attribute (sys,tablename,type, _foreignkey) VALUES (' + record + ');'
           else:
               sql_command = 'INSERT INTO attribute (sys,tablename,name,type,length) VALUES ('+ record +');'
           cursor.execute(sql_command)
@@ -72,6 +72,7 @@ sql_table = {'"scf", "catalog", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
               '"scf", "catalog", "control", "INT", 15, 0',
               '"scf", "catalog", "debit", "INT",  15, 2',
               '"scf", "catalog", "credit", "INT", 15, 2',
+             '"scf", "catalog", "type", "CHAR", 20',
               '"scf", "catalog", "status", "CHAR", 10'}
 dict.put(sql_table)
 
@@ -91,8 +92,57 @@ sql_table = {'"scf", "generallayer", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREM
               '"scf", "generallayer", "debit", "INT", 15, 2',
               '"scf", "generallayer", "credit", "INT", 15, 2',
               '"scf", "generallayer", "status", "CHAR", 10',
-              '"scf", "generallayer", "INDEX scfgenerallayer_account_idx (account)"',
-              '"scf", "generallayer", "FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+              '"scf", "generallayer", "INDEX", "INDEX scfgenerallayer_account_idx (account)"',
+              '"scf", "generallayer", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+             }
+dict.put(sql_table)
+sql_table = {'"scf", "journal", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"scf", "journal", "account",  "INT", 10, 0',
+              '"scf", "journal", "_date", "DATE"',
+              '"scf", "journal", "debit", "INT", 15, 2',
+              '"scf", "journal", "credit", "INT", 15, 2',
+              '"scf", "journal", "status", "CHAR", 10',
+              '"scf", "journal", "INDEX", "INDEX scfjournal_account_idx (account)"',
+              '"scf", "journal", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+             }
+dict.put(sql_table)
+sql_table = {'"scf", "finance", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"scf", "finance", "account",  "INT", 10, 0',
+              '"scf", "finance", "type", "CHAR", 20',
+              '"scf", "finance", "state", "CHAR", 10',
+              '"scf", "finance", "begindate", "DATE"',
+              '"scf", "finance", "enddate", "DATE"',
+              '"scf", "finance", "amount", "INT", 15,2',
+              '"scf", "finance", "budgetamount", "INT", 15,2',
+              '"scf", "finance", "INDEX", "INDEX scffinance_account_idx (account)"',
+              '"scf", "finance", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+             }
+dict.put(sql_table)
+
+sql_table = {'"scf", "policy", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"scf", "policy", "account",  "INT", 10, 0',
+              '"scf", "policy", "posttype",  "CHAR", 20',
+              '"scf", "policy", "name", "CHAR", 50',
+              '"scf", "policy", "status", "CHAR", 10',
+              '"scf", "policy", "INDEX", "INDEX scfpolicy_account_idx (account)"',
+              '"scf", "policy", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+             }
+dict.put(sql_table)
+
+sql_table = {'"scf", "Organizationbox", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"scf", "Organizationbox", "date", "DATE"',
+              '"scf", "Organizationbox", "actionitemdescription",  "CHAR", 50',
+              '"scf", "Organizationbox", "actionitemdate", "DATE"',
+              '"scf", "Organizationbox", "actionitemreference", "CHAR", 20',
+              '"scf", "Organizationbox", "actionitemstatus", "CHAR", 20',
+              '"scf", "Organizationbox", "actionitemlog", "TEXT", 50',
+              '"scf", "Organizationbox", "actionitemcmd", "TEXT", 50',
+              '"scf", "Organizationbox", "actionitemsme", "TEXT", 50',
+              '"scf", "Organizationbox", "actionitemnextfollowup", "DATE"',
+              '"scf", "Organizationbox", "actionitemtag", "TEXT", 50',
+              '"scf", "Organizationbox", "financeid", "INT", 10, 0',
+              '"scf", "Organizationbox", "INDEX", "INDEX Organizationbox_financeid_idx (financeid)"',
+              '"scf", "Organizationbox", "FOREIGNKEY","FOREIGN KEY (financeid) REFERENCES scffinance(id) ON DELETE CASCADE"'
              }
 dict.put(sql_table)
 
