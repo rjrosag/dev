@@ -22,12 +22,14 @@ class dictionarydb:
     sql_command = '''CREATE TABLE IF NOT EXISTS attribute (
                             attributeid INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
                             sys VARCHAR(3),
-                            tablename VARCHAR(10), 
+                            tablename VARCHAR(20), 
                             name VARCHAR(30),
                             type VARCHAR(50),
                             length INT,
                             _decimal INT,
                             format VARCHAR(15), 
+                            _index VARCHAR(50),
+                            _foreignkey VARCHAR(70),
                             INDEX NAME (sys, tablename)                            
                             );
     '''
@@ -48,6 +50,10 @@ class dictionarydb:
               sql_command = 'INSERT INTO attribute (sys,tablename,name,type,length,_decimal) VALUES ('+ record +');'
           elif 'DATE' in record:
               sql_command = 'INSERT INTO attribute (sys,tablename,name,type) VALUES (' + record + ');'
+          elif 'INDEX' in record:
+              sql_command = 'INSERT INTO attribute (sys,tablename, _index) VALUES (' + record + ');'
+          elif 'FOREIGN' in record:
+              sql_command = 'INSERT INTO attribute (sys,tablename, _foreignkey) VALUES (' + record + ');'
           else:
               sql_command = 'INSERT INTO attribute (sys,tablename,name,type,length) VALUES ('+ record +');'
           cursor.execute(sql_command)
@@ -77,6 +83,16 @@ sql_table = {'"scf", "cycle", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 1
               '"scf", "cycle", "recurrency", "CHAR", 10',
               '"scf", "cycle", "priority", "INT", 3, 0',
               '"scf", "cycle", "status", "CHAR", 10'
+             }
+dict.put(sql_table)
+sql_table = {'"scf", "generallayer", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"scf", "generallayer", "account",  "INT", 10, 0',
+              '"scf", "generallayer", "_date", "DATE"',
+              '"scf", "generallayer", "debit", "INT", 15, 2',
+              '"scf", "generallayer", "credit", "INT", 15, 2',
+              '"scf", "generallayer", "status", "CHAR", 10',
+              '"scf", "generallayer", "INDEX scfgenerallayer_account_idx (account)"',
+              '"scf", "generallayer", "FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
              }
 dict.put(sql_table)
 
