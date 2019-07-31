@@ -110,19 +110,20 @@ sql_table = {'"scf", "finance", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT",
               '"scf", "finance", "account",  "INT", 10, 0',
               '"scf", "finance", "type", "CHAR", 20',
               '"scf", "finance", "state", "CHAR", 10',
-              '"scf", "finance", "begindate", "DATE"',
-              '"scf", "finance", "enddate", "DATE"',
+              '"scf", "finance", "cycleid", "INT", 10, 0',
               '"scf", "finance", "amount", "INT", 15,2',
               '"scf", "finance", "budgetamount", "INT", 15,2',
               '"scf", "finance", "INDEX", "INDEX scffinance_account_idx (account)"',
-              '"scf", "finance", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
+              '"scf", "finance", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"',
+              '"scf", "finance", "INDEX", "INDEX scffinance_cycleid_idx (cycleid)"',
+              '"scf", "finance", "FOREIGNKEY","FOREIGN KEY (cycleid) REFERENCES scfcycle(id) ON DELETE CASCADE"'
              }
 dict.put(sql_table)
 
 sql_table = {'"scf", "policy", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
               '"scf", "policy", "account",  "INT", 10, 0',
               '"scf", "policy", "posttype",  "CHAR", 20',
-              '"scf", "policy", "name", "CHAR", 50',
+              '"scf", "policy", "name", "CHAR", 20',
               '"scf", "policy", "status", "CHAR", 10',
               '"scf", "policy", "INDEX", "INDEX scfpolicy_account_idx (account)"',
               '"scf", "policy", "FOREIGNKEY","FOREIGN KEY (account) REFERENCES scfcatalog(id) ON DELETE CASCADE"'
@@ -146,3 +147,45 @@ sql_table = {'"scf", "Organizationbox", "id", "INT NOT NULL PRIMARY KEY AUTO_INC
              }
 dict.put(sql_table)
 
+sql_table = {'"pmr", "cashflow", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"pmr", "cashflow", "cycleid", "INT", 10, 0',
+              '"pmr", "cashflow", "debit", "INT", 10, 0',
+              '"pmr", "cashflow", "credit", "INT", 10, 0',
+              '"pmr", "cashflow", "policyname", "CHAR", 20',
+              '"pmr", "cashflow", "status", "CHAR", 10',
+              '"pmr", "cashflow", "INDEX", "INDEX cashflow_policyname_idx (policyname)"',
+              '"pmr", "cashflow", "INDEX", "INDEX cashflow_cycleid_idx (cycleid)"',
+              '"pmr", "cashflow", "FOREIGNKEY","FOREIGN KEY (policyname) REFERENCES scfpolicy(name) ON DELETE CASCADE"',
+              '"pmr", "cashflow", "FOREIGNKEY","FOREIGN KEY (cycleid) REFERENCES scfcycle(id) ON DELETE CASCADE"'
+             }
+dict.put(sql_table)
+
+sql_table = {'"pmr", "property", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"pmr", "property", "name", "CHAR", 30',
+              '"pmr", "property", "address", "CHAR", 40',
+              '"pmr", "property", "address2", "CHAR", 40',
+              '"pmr", "property", "city", "CHAR", 30',
+              '"pmr", "property", "state", "CHAR", 30',
+              '"pmr", "property", "country", "CHAR", 30',
+              '"pmr", "property", "manager", "CHAR", 30',
+              '"pmr", "property", "cellphone", "CHAR", 15',
+              '"pmr", "property", "email", "CHAR", 40'
+             }
+dict.put(sql_table)
+
+sql_table = {'"pmr", "contract", "id", "INT NOT NULL PRIMARY KEY AUTO_INCREMENT", 10, 0',
+              '"pmr", "contract", "propertyid", "INT", 10, 0',
+              '"pmr", "contract", "tenantname", "CHAR", 40',
+              '"pmr", "contract", "tenantpublicid", "CHAR", 15',
+              '"pmr", "contract", "beingdate", "DATE"',
+              '"pmr", "contract", "enddate", "DATE"',
+              '"pmr", "contract", "rentamount", "INT", 15, 2',
+              '"pmr", "contract", "depositamount", "INT", 15, 2',
+              '"pmr", "contract", "petfee", "INT", 15, 2',
+              '"pmr", "contract", "promotionamount", "INT", 15, 2',
+              '"pmr", "contract", "promotioexpiration", "DATE"',
+              '"pmr", "contract", "termincrease", "INT", 10, 2',
+              '"pmr", "contract", "duedate", "DATE"',
+              '"pmr", "contract", "status", "CHAR", 10'
+             }
+dict.put(sql_table)
