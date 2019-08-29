@@ -12,9 +12,9 @@ class dictionarydb:
   def create(self):
     sql_command = ""
     mydb = mysql.connector.connect(
-        host=os.environ.get('DICTIONARY_DBHOST', "localhost"),
-        user=os.environ.get('DICTIONARY_DBUSER', 'admin'),
-        passwd=os.environ.get('DICTIONARY_DBPASSWORD', 'c0mcast!'))
+    host=os.environ.get('DICTIONARY_DBHOST', "localhost"),
+    user=os.environ.get('DICTIONARY_DBUSER', 'admin'),
+    passwd=os.environ.get('DICTIONARY_DBPASSWORD', 'c0mcast!'))
     cursor = mydb.cursor(buffered=None)
     cursor.execute("CREATE DATABASE IF NOT EXISTS dictionary;")
     cursor.execute("USE dictionary;")
