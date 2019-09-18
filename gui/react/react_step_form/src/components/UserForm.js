@@ -8,12 +8,12 @@ import Success from './Success';
 export class UserForm extends Component {
     state = {
         step:1,
-        sysCode:"",
-        tableName:"",
-        attributeName:"",
-        typeSize:"",
-        description:"",
-        example:""
+        newfield1:"",
+        lastName:"",
+        email:"",
+        occupation:"",
+        city:"",
+        bio:""
     }
 
     // Next step
@@ -36,10 +36,8 @@ export class UserForm extends Component {
     }
     render() {
         const { step } = this.state;
-        const { sysCode, tableName, attributeName, typeSize, description,
-             example } = this.state;
-        const values = { sysCode, tableName, attributeName, typeSize, description,
-            example } 
+        const { firstName, lastName, email, occupation, city, bio } = this.state;
+        const values = { firstName, lastName, email, occupation, city, bio } 
         switch(step) {
             case 1: 
                 return(
